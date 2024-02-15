@@ -1,0 +1,108 @@
+// default color
+$defColor: #4b3737;
+$defaultBg: #928989;
+$defaultBorder: #000000;
+$defaultClose: #580404;
+
+// note color
+$noteColor: #360256;
+$noteBg: #945cb7;
+$noteBorder: #360256;
+$noteClose: #33005c;
+
+// error color
+$errorColor: #6f1616;
+$errorBg: #b35d5d;
+$errorBorder: #ff0000;
+$errorClose: #a10e0e;
+
+// success color
+$successColor: #33b21c;
+$successBg: #587154;
+$successBorder: #26ff00;
+$successClose: #3e9a2d;
+
+// tips color
+$tipsColor: #c7d61d;
+$tipsBg: #a1a677;
+$tipsBorder: #eaff00;
+$tipsClose: #858d28;
+
+@mixin alert-setting($type, $color, $bgcolor, $bordercolor, $closecolor) {
+  .#{$type} {
+    width: 80%;
+    margin: 10px auto;
+    border: 3px dotted $bordercolor;
+    padding: 15px;
+    background-color: $bgcolor;
+    color: $color;
+    border-radius: 0.8rem;
+
+    .alert-header {
+      display: flex;
+      justify-content: space-between;
+      justify-items: center;
+      .title {
+        display: flex;
+        align-items: center;
+      }
+      h2 {
+        margin-left: 10px;
+      }
+      .close {
+        border: 2px solid $closecolor;
+        cursor: pointer;
+      }
+    }
+    p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+    a {
+      font-weight: 800;
+      color: black;
+      cursor: pointer;
+    }
+    a:hover {
+      color: $color;
+    }
+  }
+}
+@include alert-setting(
+  "default-alert",
+  $defColor,
+  $defaultBg,
+  $defaultBorder,
+  $defaultClose
+);
+@include alert-setting(
+  "note-alert",
+  $noteColor,
+  $noteBg,
+  $noteBorder,
+  $noteClose
+);
+
+@include alert-setting(
+  "error-alert",
+  $errorColor,
+  $errorBg,
+  $errorBorder,
+  $errorClose
+);
+@include alert-setting(
+  "success-alert",
+  $successColor,
+  $successBg,
+  $successBorder,
+  $successClose
+);
+@include alert-setting(
+  "tips-alert",
+  $tipsColor,
+  $tipsBg,
+  $tipsBorder,
+  $tipsClose
+);
